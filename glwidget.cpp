@@ -127,6 +127,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event)
     if(event->button() & Qt::MiddleButton){
         isMouseMiddleDown = true;
     }
+    //Error on right-click is here
     if(event->button() & Qt::RightButton){
         glLoadIdentity();
         gluPerspective(45, (double)width()/(double)height(), 0.01, 10);
