@@ -1,3 +1,3 @@
 # Qt_NetvizGL2
 
-Qt version NetvizGL
+Extended version of Qt NetvizGL
