@@ -12,6 +12,8 @@ public:
     MultiForce(Graph *g);
     void apply() override;
     void initialPlacement() override;
+    void performAlgorithmOne();
+    void performAlgorithmTwo();
     double area;
     double k;
     double W;
