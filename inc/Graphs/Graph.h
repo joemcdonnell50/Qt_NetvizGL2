@@ -12,6 +12,8 @@
 #include <sstream>
 #include <iterator>
 #include <iostream>
+#include <list>
+#include <stack>
 #include <sys/time.h>
 #include "../Vertex.h"
 #include "../Edge.h"
@@ -34,6 +36,7 @@ public:
     vector<vector<int>> adjacencyMatrix;
     vector<int *> rawDataFromFile;
     vector<int *> edgeList;
+    vector<int> adjList [];           //////////////////
     set<int> set;
 
     void update();
@@ -48,6 +51,7 @@ protected:
     void createEdges();
     void initialiseAdjacencyMatrix();
     void getEdgeListFromAdjacencyMatrix();
+    void intialiseAdjacencyList();     //////////////////
     void getAdjacencyMatrixFromEdgeList();
     void setRandomColour();
 
