@@ -18,13 +18,19 @@ TestThread::~TestThread()
 
 void TestThread::run()
 {
+    bool finished = false;
+    //int count = 0;
     while(1){
         sync.lock();
         if(isPaused)
             pauseCond.wait(&sync); // in this place, your thread will stop to execute until someone calls resume
         sync.unlock();
-        if(algorithm!=NULL)
+        if(algorithm!=NULL){  //&& !finished
             algorithm->apply();
+            //count++;
+            //if (count == 10)
+                //finished = true;
+       }
         //        usleep(5000);
     }
 }
