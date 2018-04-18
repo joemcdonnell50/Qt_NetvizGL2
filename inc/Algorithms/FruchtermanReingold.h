@@ -14,11 +14,15 @@ public:
     FruchtermanReingold(Graph *g);
     void apply() override;
     void initialPlacement() override;
+    void calculateRepulsiveForces();
+    void calculateAttractiveForces();
+    void updateNodePosition();
     double area;
     double k;
     double W;
     double L;
     double t;
+    double count;
 };
 
 #endif //NETVIZGL_FRUCHTERMANREINGOLD_H

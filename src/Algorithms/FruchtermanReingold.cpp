@@ -16,7 +16,13 @@ FruchtermanReingold::FruchtermanReingold(Graph *g) : Algorithm(g) {
 }
 
 void FruchtermanReingold::apply() {
-//    static double maxV = 0;
+    calculateRepulsiveForces();
+    calculateAttractiveForces();
+    updateNodePosition();
+    t *= .9;
+}
+
+void FruchtermanReingold::calculateRepulsiveForces(){
     Vertex *v;
     Vertex *u;
 
@@ -40,10 +46,12 @@ void FruchtermanReingold::apply() {
             v->forceY += yDist / dist * repulsion;
         }
     }
+}
 
+void FruchtermanReingold::calculateAttractiveForces(){
+    Vertex *v;
+    Vertex *u;
     for (int i = 0; i < graph->numEdges; ++i) {
-//        v = graph->vertices[graph->edgeList[i][0]];
-//        u = graph->vertices[graph->edgeList[i][1]];
         v = graph->edges[i]->base;
         u = graph->edges[i]->connect;
 
@@ -62,43 +70,30 @@ void FruchtermanReingold::apply() {
         u->forceY += yDist / dist * attraction;
     }
 
+}
+
+void FruchtermanReingold::updateNodePosition(){
+    Vertex *v;
     for (int i = 0; i < graph->numVertices; ++i) {
         v = graph->vertices[i];
         v->posX += v->forceX * 0.0015;
         v->posY += v->forceY * 0.0015;
-        ////    v->velocityX = min(t, max(-t, (v->velocityX + v->forceX)));
-        ////    v->velocityY = min(t, max(-t, (v->velocityY + v->forceY)));
-        //
-        //    v->posX += (v->forceX / (abs(v->forceX))) * min(t, max(-t, (v->forceX)));
-        //    v->posY += (v->forceY / (abs(v->forceY))) * min(t, max(-t, (v->forceY)));
-
-        //    v->posX = min(4*W, max(-4*W, v->posX));
-        //    v->posY = min(4*L, max(-4*L, v->posY));
     }
-    t *= .9;
 
 }
 
 void FruchtermanReingold::initialPlacement() {
-    //char *digit = new char[64];
+    char *digit = new char[64];
 
     struct timeval time;
     gettimeofday(&time, NULL);
     srand(Graph::hash3(time.tv_sec, time.tv_usec, getpid()));
     for (int j = 0; j < graph->numVertices; ++j) {
         //sprintf(digit, "%d", j);
-        //graph->vertices[j]->setText(digit);
+        graph->vertices[j]->setText(digit);
         graph->vertices[j]->posX = ((double) rand()) / RAND_MAX * (W) - W / 2;
         graph->vertices[j]->posY = ((double) rand()) / RAND_MAX * (L) - L / 2;
         graph->vertices[j]->posZ = 0;
 
     }
-
-//    for (int i = 0; i < graph->numVertices; ++i) {
-//        for (int j = 0; j < graph->numVertices; ++j) {
-//            if (graph->vertices[i]->posX == graph->vertices[j]->posX && i != j
-//                    && graph->vertices[i]->posY == graph->vertices[j]->posY)
-//                fprintf(stderr, "Warning: duplicate positions generated @ %d\n", i);
-//        }
-//    }
 }
