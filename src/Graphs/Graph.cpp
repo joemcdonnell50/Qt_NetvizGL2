@@ -3,6 +3,7 @@
 //
 
 #include "../../inc/Graphs/Graph.h"
+#include <stack>
 #include <QDebug>
 
 Graph::Graph() {
@@ -14,6 +15,7 @@ Graph::~Graph() {
     adjacencyMatrix.clear();
     edgeList.clear();
     edges.clear();
+    //adjList.clear(); /////////////////////
     set.clear();
 }
 
@@ -43,6 +45,21 @@ void Graph::getEdgeListFromAdjacencyMatrix()
     }
 }
 
+void Graph::intialiseAdjacencyList()       //////////////////////
+{
+    vector<int> adjList [numVertices];
+    for (int i = 0; i < numVertices; ++i){
+        //if (graph->edgeList[i][0] == graph->edgeList[i+1][0] )
+        int v = edgeList[i][0];
+        int u = edgeList[i][1];
+                //cout << v << " " << u << endl;
+                adjList[v].push_back(u);
+                adjList[u].push_back(v);
+                //cout << "made it " << endl;
+    }
+}
+
+
 void Graph::getAdjacencyMatrixFromEdgeList()
 {
     for (int k = 0; k < edgeList.size(); ++k) {
@@ -70,6 +87,7 @@ void Graph::createGraphData()
     getAdjacencyMatrixFromEdgeList();
     edgeList.clear();
     getEdgeListFromAdjacencyMatrix();
+    intialiseAdjacencyList();          ////////////////
     vertices.clear();
     createVertices();
     edges.clear();
@@ -163,3 +181,4 @@ int *Graph::split(string str) {
     }
     return ret;
 }
+
