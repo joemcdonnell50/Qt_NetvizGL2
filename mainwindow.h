@@ -28,6 +28,12 @@ private slots:
 
     void on_radioButton_Multiforce_clicked();
 
+    void on_radioButton_MultiLevelGEM_clicked();
+
+    void on_radioButton_DavidsonHarel_clicked();
+
+    void on_radioButton_GEM_clicked();
+
     void on_pushButton_degree_clicked();
 
     void on_pushButton_distance_clicked();

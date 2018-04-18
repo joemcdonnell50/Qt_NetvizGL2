@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>NetvizGL</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QHBoxLayout" name="horizontalLayout_2">
@@ -45,8 +45,17 @@
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="topMargin">
+           <number>5</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QRadioButton" name="radioButton_Simple">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="text">
              <string>Simple</string>
             </property>
@@ -65,7 +74,21 @@
           <item>
            <widget class="QRadioButton" name="radioButton_Multiforce">
             <property name="text">
-             <string>Multiforce</string>
+             <string>Multilevel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_MultiLevelGEM">
+            <property name="text">
+             <string>Multilevel GEM</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="radioButton_GEM">
+            <property name="text">
+             <string>GEM</string>
             </property>
            </widget>
           </item>
@@ -145,16 +168,6 @@
      </layout>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

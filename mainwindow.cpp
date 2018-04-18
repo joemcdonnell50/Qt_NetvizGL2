@@ -32,7 +32,7 @@ void MainWindow::on_pushButton_Open_clicked()
 {
     QString file = QFileDialog::getOpenFileName(this,
                                                 "choose a file",
-                                                "D:/Qt_project/NetvizGL2 - Copy/Graphs",
+                                                "C:/Users/New User/Documents/GitHub/Qt_NetvizGL2/Graphs",
                                                 "All (*.*);; Text (*.txt);; Matrix (*.mtx)");
     if(!file.isEmpty()){
         char *p = new char[file.toStdString().size()];
@@ -63,6 +63,21 @@ void MainWindow::on_radioButton_FR_clicked()
 void MainWindow::on_radioButton_Multiforce_clicked()
 {
     ui->widget->changeAlgorithm('3');
+}
+
+void MainWindow::on_radioButton_MultiLevelGEM_clicked()
+{
+    ui->widget->changeAlgorithm('4');
+}
+
+void MainWindow::on_radioButton_DavidsonHarel_clicked()
+{
+    ui->widget->changeAlgorithm('5');
+}
+
+void MainWindow::on_radioButton_GEM_clicked()
+{
+    ui->widget->changeAlgorithm('6');
 }
 
 void MainWindow::on_pushButton_degree_clicked()
