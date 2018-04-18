@@ -31,6 +31,7 @@ public:
     static const unsigned int rings = 12, sectors = 12;
     static constexpr double radius = 0.01;
 
+    double temperature = 0.0;
     int degree = 0;
     int level;
     int vertexNumber = 0;
