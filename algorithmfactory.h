@@ -4,6 +4,9 @@
 #include "inc/Algorithms/SimpleForceDirected.h"
 #include "inc/Algorithms/FruchtermanReingold.h"
 #include "inc/Algorithms/MultiForce.h"
+#include "inc/Algorithms/MultiLevelGEM.h"
+#include "inc/Algorithms/DavidsonHarel.h"
+#include "inc/Algorithms/GraphEmbedding.h"
 
 class AlgorithmFactory
 {
