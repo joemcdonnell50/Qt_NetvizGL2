@@ -140,6 +140,7 @@ void GLWidget::mousePressEvent(QMouseEvent *event)
         isMouseRightDown = true;
     }
     update();
+
 }
 
 void GLWidget::mouseReleaseEvent(QMouseEvent *event)
@@ -152,6 +153,7 @@ void GLWidget::mouseReleaseEvent(QMouseEvent *event)
     }
     if(event->button() & Qt::RightButton){
         isMouseRightDown = false;
+
     }
 
     mouseX = event->pos().x();
