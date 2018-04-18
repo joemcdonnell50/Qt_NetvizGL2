@@ -16,6 +16,8 @@ public:
 
     void apply() override;
     void initialPlacement() override;
+    void calculateForces();
+    void updateNodePosition();
 };
 
 #endif //NETVIZGL_SIMPLEFORCEDIRECTED_H
